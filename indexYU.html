@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of Yuranga Jayawardena — Physical Science student at Mahanama College, aspiring Cybersecurity Engineer with a passion for AI and automation.">
+  <meta name="keywords" content="Yuranga Jayawardena, AI, Cybersecurity, Mahanama College, Physical Science, Sri Lanka, Portfolio">
+  <meta name="author" content="Yuranga Jayawardena">
+  <meta property="og:title" content="Yuranga Jayawardena — Portfolio">
+  <meta property="og:description" content="Physical Science Student & Aspiring Cybersecurity Engineer">
+  <meta property="og:type" content="website">
+  <title>Yuranga Jayawardena | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #0a0a0a;
+      --bg-secondary: #0f0f0f;
+      --bg-card: rgba(20, 20, 20, 0.7);
+      --bg-card-hover: rgba(28, 18, 18, 0.85);
+      --border-subtle: rgba(255, 255, 255, 0.05);
+      --border-card: rgba(255, 255, 255, 0.06);
+      --border-accent: rgba(255, 60, 60, 0.25);
+      --text-primary: #f0ece5;
+      --text-secondary: #a09a90;
+      --text-muted: #5a5550;
+      --accent-primary: #ff3a3a;
+      --accent-secondary: #ff6b4a;
+      --accent-glow: rgba(255, 58, 58, 0.15);
+      --accent-gradient: linear-gradient(135deg, #ff3a3a 0%, #e63946 50%, #ff6b4a 100%);
+      --glass-bg: rgba(15, 10, 10, 0.6);
+      --glass-blur: blur(16px);
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+      --shadow-md: 0 8px 32px rgba(0, 0, 0, 0.5);
+      --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.6);
+      --shadow-glow: 0 0 50px rgba(255, 58, 58, 0.06);
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+      --transition-fast: 0.2s ease;
+      --transition-smooth: 0.35s ease;
+      --font-sans: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --font-mono: 'DM Mono', 'Fira Code', monospace;
+      --max-width: 1280px;
+      --nav-height: 72px;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: var(--nav-height);
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.7;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Subtle red radial glow */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 50% 0%, rgba(255, 58, 58, 0.04) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 40% at 85% 60%, rgba(230, 57, 70, 0.025) 0%, transparent 50%);
+      pointer-events: none; z-index: 0;
+    }
+
+    /* NAVIGATION — side-accent style */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 1000; height: var(--nav-height);
+      transition: var(--transition-smooth);
+    }
+    .nav.scrolled {
+      background: rgba(10, 10, 10, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-subtle);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+    }
+    .nav__inner {
+      max-width: var(--max-width); margin: 0 auto;
+      padding: 0 2rem; height: 100%;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav__logo {
+      font-size: 1.25rem; font-weight: 700; letter-spacing: -0.01em;
+      color: var(--text-primary); text-decoration: none;
+      display: flex; align-items: center; gap: 0.6rem; z-index: 1001;
+    }
+    .nav__logo-mark {
+      width: 32px; height: 32px; border-radius: 4px;
+      background: var(--accent-primary);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.85rem; font-weight: 700; color: #fff;
+      box-shadow: 0 0 16px rgba(255, 58, 58, 0.35);
+    }
+    .nav__links { display: flex; gap: 0.15rem; list-style: none; }
+    .nav__link {
+      color: var(--text-secondary); text-decoration: none;
+      font-size: 0.85rem; font-weight: 500; padding: 0.45rem 0.9rem;
+      border-radius: 4px; transition: var(--transition-fast);
+      letter-spacing: 0.01em;
+    }
+    .nav__link:hover, .nav__link:focus-visible {
+      color: var(--text-primary); background: rgba(255, 58, 58, 0.08);
+    }
+    .nav__link--active { color: var(--accent-primary); }
+    .nav__toggle {
+      display: none; background: none; border: none; cursor: pointer;
+      padding: 0.5rem; z-index: 1001; color: var(--text-primary);
+    }
+    .nav__toggle span {
+      display: block; width: 22px; height: 2px;
+      background: var(--text-primary); border-radius: 1px;
+      transition: var(--transition-fast);
+    }
+    .nav__toggle span:nth-child(2) { margin: 5px 0; }
+    .nav__toggle.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .nav__toggle.open span:nth-child(2) { opacity: 0; }
+    .nav__toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+    /* SECTIONS */
+    .section { position: relative; z-index: 1; padding: 7rem 2rem; }
+    .section__inner { max-width: var(--max-width); margin: 0 auto; }
+    .section__eyebrow {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      font-family: var(--font-mono); font-size: 0.72rem; font-weight: 500;
+      color: var(--accent-primary); text-transform: uppercase;
+      letter-spacing: 0.12em; margin-bottom: 1.25rem;
+      border-left: 2px solid var(--accent-primary);
+      padding-left: 0.8rem;
+    }
+    .section__title {
+      font-size: clamp(2.2rem, 4.5vw, 3.2rem); font-weight: 700;
+      letter-spacing: -0.02em; line-height: 1.1;
+      margin-bottom: 1.25rem; color: var(--text-primary);
+    }
+    .section__subtitle {
+      font-size: 1.1rem; color: var(--text-secondary);
+      max-width: 620px; line-height: 1.7;
+    }
+
+    /* HERO — asymmetric layout with accent bar */
+    .hero {
+      min-height: 100vh; display: flex; align-items: center;
+      padding-top: var(--nav-height); position: relative;
+    }
+    .hero::after {
+      content: ''; position: absolute; top: 20%; right: 0;
+      width: 1px; height: 300px;
+      background: linear-gradient(to bottom, var(--accent-primary), transparent);
+      opacity: 0.3;
+    }
+    .hero__inner {
+      display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 3rem;
+      align-items: center; max-width: var(--max-width);
+      margin: 0 auto; padding: 2rem; width: 100%;
+    }
+    .hero__content { animation: fadeInUp 0.8s ease forwards; }
+    .hero__tag {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-family: var(--font-mono); font-size: 0.78rem; font-weight: 500;
+      color: var(--accent-primary); margin-bottom: 1.5rem;
+      background: rgba(255, 58, 58, 0.06); padding: 0.4rem 0.9rem;
+      border-radius: 4px; letter-spacing: 0.04em;
+    }
+    .hero__tag::before { content: '◆'; font-size: 0.5rem; }
+    .hero__name {
+      font-size: clamp(3rem, 7vw, 5rem); font-weight: 700;
+      letter-spacing: -0.03em; line-height: 1.02; margin-bottom: 0.6rem;
+      color: var(--text-primary);
+    }
+    .hero__name span { color: var(--accent-primary); }
+    .hero__title {
+      font-size: 1.15rem; font-weight: 500; color: var(--accent-secondary);
+      margin-bottom: 1.5rem; letter-spacing: -0.01em;
+    }
+    .hero__intro {
+      font-size: 1.05rem; color: var(--text-secondary);
+      line-height: 1.8; max-width: 540px; margin-bottom: 2.25rem;
+    }
+    .hero__actions { display: flex; flex-wrap: wrap; gap: 1rem; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.85rem 1.8rem; border-radius: 4px;
+      font-weight: 600; font-size: 0.9rem; font-family: var(--font-sans);
+      cursor: pointer; transition: var(--transition-smooth);
+      text-decoration: none; border: none; letter-spacing: 0.01em;
+    }
+    .btn--primary {
+      background: var(--accent-primary); color: #fff;
+      box-shadow: 0 4px 24px rgba(255, 58, 58, 0.25);
+    }
+    .btn--primary:hover { transform: translateY(-2px); box-shadow: 0 8px 36px rgba(255, 58, 58, 0.35); }
+    .btn--outline {
+      background: transparent; color: var(--text-primary);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+    .btn--outline:hover { border-color: var(--accent-primary); color: var(--accent-primary); background: rgba(255, 58, 58, 0.04); }
+    .hero__visual {
+      display: flex; justify-content: center; align-items: center;
+      animation: fadeIn 1s ease 0.2s forwards; opacity: 0;
+    }
+    .hero__card {
+      width: 300px; background: var(--bg-card);
+      backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);
+      border: 1px solid var(--border-card); border-radius: var(--radius-lg);
+      padding: 2.5rem 2rem; text-align: center;
+      position: relative; box-shadow: var(--shadow-lg);
+    }
+    .hero__card::before {
+      content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+      width: 60px; height: 3px; background: var(--accent-gradient);
+      border-radius: 0 0 3px 3px;
+    }
+    .hero__avatar {
+      width: 100px; height: 100px; border-radius: 8px;
+      background: linear-gradient(135deg, rgba(255, 58, 58, 0.2) 0%, rgba(230, 57, 70, 0.1) 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.5rem; font-weight: 700; color: var(--accent-primary);
+      margin: 0 auto 1.25rem; user-select: none;
+      border: 1px solid rgba(255, 58, 58, 0.2);
+    }
+    .hero__card-label {
+      font-family: var(--font-mono); font-size: 0.7rem;
+      color: var(--text-muted); text-transform: uppercase;
+      letter-spacing: 0.1em; margin-bottom: 0.6rem;
+    }
+    .hero__card-name {
+      font-size: 1.25rem; font-weight: 700; margin-bottom: 0.3rem;
+    }
+    .hero__card-role {
+      font-size: 0.85rem; color: var(--accent-secondary);
+    }
+    .hero__scroll {
+      position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 0.6rem;
+      color: var(--text-muted); font-size: 0.7rem; font-family: var(--font-mono);
+      animation: bounceDown 2s ease infinite; opacity: 0.5;
+    }
+    .hero__scroll-dot { width: 1px; height: 36px; background: linear-gradient(to bottom, var(--accent-primary), transparent); }
+
+    /* ABOUT — side-by-side with accent dividers */
+    .about__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 3.5rem; }
+    .about__text { font-size: 1.05rem; color: var(--text-secondary); line-height: 1.85; }
+    .about__text p + p { margin-top: 1.25rem; }
+    .about__stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .about-stat {
+      background: var(--bg-card); border: 1px solid var(--border-card);
+      border-radius: var(--radius-md); padding: 1.5rem 1.25rem;
+      transition: var(--transition-smooth); position: relative;
+    }
+    .about-stat:hover { border-color: var(--border-accent); transform: translateY(-3px); background: var(--bg-card-hover); }
+    .about-stat__icon { font-size: 1.6rem; margin-bottom: 0.75rem; }
+    .about-stat__title { font-weight: 700; font-size: 0.95rem; margin-bottom: 0.4rem; color: var(--text-primary); }
+    .about-stat__desc { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5; }
+
+    /* EDUCATION — horizontal card style */
+    .edu__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+    .edu-card {
+      background: var(--bg-card); border: 1px solid var(--border-card);
+      border-left: 3px solid var(--accent-primary); border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      padding: 2rem; transition: var(--transition-smooth);
+    }
+    .edu-card:hover { background: var(--bg-card-hover); border-left-color: var(--accent-secondary); }
+    .edu-card__year {
+      font-family: var(--font-mono); font-size: 0.78rem; font-weight: 500;
+      color: var(--accent-primary); margin-bottom: 0.5rem; letter-spacing: 0.04em;
+    }
+    .edu-card__heading { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.3rem; }
+    .edu-card__sub { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 0.5rem; }
+    .edu-card__detail { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1rem; }
+    .edu-card__goal {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      font-size: 0.82rem; color: var(--accent-secondary);
+      background: rgba(255, 107, 74, 0.06); padding: 0.35rem 0.9rem;
+      border-radius: 4px; font-weight: 500;
+    }
+
+    /* SKILLS — tag cloud style */
+    .skills__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; margin-top: 3rem; }
+    .skills__category { }
+    .skills__category-title {
+      font-size: 0.8rem; font-family: var(--font-mono); color: var(--accent-primary);
+      text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1.25rem;
+      padding-bottom: 0.75rem; border-bottom: 1px solid var(--border-subtle);
+    }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+    .skill-tag {
+      display: flex; flex-direction: column; align-items: flex-start; gap: 0.5rem;
+      padding: 1rem 1.2rem; background: var(--bg-card);
+      border: 1px solid var(--border-card); border-radius: var(--radius-sm);
+      transition: var(--transition-smooth); min-width: 140px; flex: 1;
+    }
+    .skill-tag:hover { border-color: var(--accent-primary); background: var(--bg-card-hover); }
+    .skill-tag__name { font-weight: 600; font-size: 0.9rem; }
+    .skill-tag__level {
+      display: flex; align-items: center; gap: 0.3rem;
+      font-size: 0.75rem; color: var(--text-muted);
+    }
+    .skill-tag__dots {
+      display: flex; gap: 3px;
+    }
+    .skill-tag__dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+    }
+    .skill-tag__dot.filled { background: var(--accent-primary); box-shadow: 0 0 6px var(--accent-glow); }
+
+    /* PROJECTS */
+    .projects__grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 1.5rem; margin-top: 3rem;
+    }
+    .project-card {
+      background: var(--bg-card); border: 1px solid var(--border-card);
+      border-radius: var(--radius-md); padding: 2rem; transition: var(--transition-smooth);
+      display: flex; flex-direction: column; position: relative; overflow: hidden;
+    }
+    .project-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: var(--accent-gradient); opacity: 0; transition: opacity 0.3s;
+    }
+    .project-card:hover::before { opacity: 1; }
+    .project-card:hover { background: var(--bg-card-hover); transform: translateY(-3px); box-shadow: var(--shadow-glow); }
+    .project-card__icon {
+      width: 44px; height: 44px; border-radius: var(--radius-sm);
+      background: rgba(255, 58, 58, 0.08); display: flex;
+      align-items: center; justify-content: center; font-size: 1.3rem; margin-bottom: 1.25rem;
+    }
+    .project-card__title { font-weight: 700; font-size: 1.1rem; margin-bottom: 0.6rem; }
+    .project-card__desc { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; flex: 1; }
+    .project-card__link { display: inline-flex; align-items: center; gap: 0.35rem; margin-top: 0.5rem; font-size: 0.82rem; font-weight: 500; color: var(--accent-secondary); text-decoration: none; transition: 0.2s; }
+    .project-card__link:hover { color: var(--accent-primary); text-decoration: underline; }
+    .project-card__badge {
+      display: inline-flex; align-items: center; gap: 0.3rem; margin-top: 1.25rem;
+      font-size: 0.78rem; font-family: var(--font-mono); color: var(--accent-secondary);
+      background: rgba(255, 107, 74, 0.06); padding: 0.3rem 0.8rem; border-radius: 4px;
+    }
+    .project-card__badge::before { content: '●'; font-size: 0.4rem; animation: pulse 1.5s ease infinite; }
+
+    /* ACHIEVEMENTS */
+    .achievements__grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem; margin-top: 3rem;
+    }
+    .achievement-card {
+      background: var(--bg-card); border: 1px solid var(--border-card);
+      border-radius: var(--radius-md); padding: 1.75rem; transition: var(--transition-smooth);
+      position: relative;
+    }
+    .achievement-card:hover { border-color: var(--border-accent); background: var(--bg-card-hover); }
+    .achievement-card--featured {
+      border-color: rgba(255, 58, 58, 0.15);
+      background: linear-gradient(135deg, rgba(255, 58, 58, 0.03) 0%, var(--bg-card) 40%);
+    }
+    .achievement-card__icon { font-size: 1.8rem; margin-bottom: 1rem; }
+    .achievement-card__title { font-weight: 700; font-size: 1rem; margin-bottom: 0.35rem; }
+    .achievement-card__desc { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.55; }
+
+    /* INTERESTS */
+    .interests__section { margin-top: 3rem; }
+    .interests__section + .interests__section { margin-top: 2.5rem; }
+    .interests__section-title {
+      font-size: 0.8rem; font-family: var(--font-mono); color: var(--accent-primary);
+      text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1rem;
+      padding-bottom: 0.6rem; border-bottom: 1px solid var(--border-subtle);
+    }
+    .chip-grid { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+    .chip {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.55rem 1.1rem; border-radius: 4px; font-size: 0.85rem; font-weight: 500;
+      background: var(--bg-card); border: 1px solid var(--border-card);
+      color: var(--text-secondary); transition: var(--transition-fast);
+    }
+    .chip:hover {
+      border-color: var(--accent-primary); color: var(--accent-primary);
+      background: rgba(255, 58, 58, 0.05); transform: translateY(-1px);
+    }
+    .chip__emoji { font-size: 1rem; }
+
+    /* CAREER */
+    .career__wrap {
+      background: var(--bg-card); border: 1px solid var(--border-card);
+      border-radius: var(--radius-lg); padding: 3rem; margin-top: 3rem;
+      position: relative; overflow: hidden;
+    }
+    .career__wrap::after {
+      content: ''; position: absolute; bottom: 0; right: 0; width: 250px; height: 250px;
+      background: radial-gradient(circle, rgba(255, 58, 58, 0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .career__icon { font-size: 2.5rem; margin-bottom: 1.25rem; }
+    .career__quote {
+      font-size: 1.35rem; font-weight: 700; line-height: 1.45; margin-bottom: 1rem;
+      max-width: 700px; letter-spacing: -0.01em;
+    }
+    .career__quote em { color: var(--accent-primary); font-style: normal; }
+    .career__detail { font-size: 0.98rem; color: var(--text-secondary); line-height: 1.75; max-width: 620px; }
+
+    /* CONTACT */
+    .contact__grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem; margin-top: 3rem;
+    }
+    .contact-card {
+      display: flex; align-items: center; gap: 1rem; padding: 1.35rem 1.5rem;
+      background: var(--bg-card); border: 1px solid var(--border-card);
+      border-radius: var(--radius-sm); text-decoration: none; color: var(--text-primary);
+      transition: var(--transition-smooth);
+    }
+    .contact-card:hover {
+      background: var(--bg-card-hover); border-color: var(--border-accent);
+      transform: translateY(-2px); box-shadow: var(--shadow-glow);
+    }
+    .contact-card__icon {
+      width: 42px; height: 42px; border-radius: 4px;
+      background: rgba(255, 58, 58, 0.08); display: flex;
+      align-items: center; justify-content: center; font-size: 1.15rem; flex-shrink: 0;
+    }
+    .contact-card__info { flex: 1; min-width: 0; }
+    .contact-card__label {
+      font-size: 0.7rem; font-family: var(--font-mono); color: var(--text-muted);
+      text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.15rem;
+    }
+    .contact-card__value { font-weight: 600; font-size: 0.9rem; overflow-wrap: break-word; word-break: keep-all; user-select: all; }
+
+    /* FOOTER */
+    .footer {
+      text-align: center; padding: 3rem 2rem;
+      border-top: 1px solid var(--border-subtle); position: relative; z-index: 1;
+    }
+    .footer__text { font-size: 0.82rem; color: var(--text-muted); }
+    .footer__text b { color: var(--accent-primary); font-weight: 600; }
+
+    /* ANIMATIONS */
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes bounceDown { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(8px); } }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* RESPONSIVE */
+    @media (max-width: 960px) {
+      .hero__inner { grid-template-columns: 1fr; text-align: center; gap: 2.5rem; }
+      .hero__intro { max-width: 100%; margin-left: auto; margin-right: auto; }
+      .hero__actions { justify-content: center; }
+      .hero::after { display: none; }
+      .hero__card { width: 240px; padding: 2rem 1.5rem; }
+      .about__grid { grid-template-columns: 1fr; }
+      .about__stats { grid-template-columns: 1fr 1fr; }
+      .skills__grid { grid-template-columns: 1fr; }
+      .projects__grid { grid-template-columns: 1fr; }
+      .edu__grid { grid-template-columns: 1fr; }
+      .section { padding: 5rem 1.5rem; }
+      .career__wrap { padding: 2rem; }
+      .career__quote { font-size: 1.15rem; }
+    }
+
+    @media (max-width: 600px) {
+      .nav__links {
+        position: fixed; top: 0; right: -100%; width: 75%; max-width: 300px;
+        height: 100vh; background: rgba(10, 10, 10, 0.97);
+        backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+        flex-direction: column; padding: 5rem 2rem 2rem; gap: 0.4rem;
+        transition: var(--transition-smooth); border-left: 1px solid var(--border-subtle);
+      }
+      .nav__links.open { right: 0; }
+      .nav__toggle { display: block; }
+      .hero__inner { padding: 1rem; }
+      .hero__card { width: 200px; padding: 1.5rem 1rem; }
+      .hero__avatar { width: 80px; height: 80px; font-size: 2rem; }
+      .section { padding: 4rem 1rem; }
+      .section__title { font-size: 1.85rem; }
+      .about__stats { grid-template-columns: 1fr; }
+      .contact__grid { grid-template-columns: 1fr; }
+      .achievements__grid { grid-template-columns: 1fr; }
+      .career__wrap { padding: 1.5rem; }
+      .career__quote { font-size: 1.05rem; }
+      .chip-grid { gap: 0.5rem; }
+      .chip { padding: 0.45rem 0.8rem; font-size: 0.78rem; }
+      .skill-tag { min-width: 120px; padding: 0.8rem 1rem; }
+    }
+
+    :focus-visible { outline: 2px solid var(--accent-primary); outline-offset: 3px; border-radius: 2px; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0; }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+      html { scroll-behavior: auto; }
+    }
+    .skip-link { position: absolute; top: -100%; left: 1rem; background: var(--accent-primary); color: #fff; padding: 0.5rem 1rem; border-radius: 0 0 4px 4px; font-weight: 600; z-index: 2000; transition: top 0.2s; }
+    .skip-link:focus { top: 0; }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <nav class="nav" id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="#hero" class="nav__logo" aria-label="Yuranga Jayawardena Home">
+        <span class="nav__logo-mark">YJ</span>Yuranga
+      </a>
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav__links" id="navLinks" role="menubar">
+        <li role="none"><a href="#about" class="nav__link" role="menuitem">About</a></li>
+        <li role="none"><a href="#education" class="nav__link" role="menuitem">Education</a></li>
+        <li role="none"><a href="#skills" class="nav__link" role="menuitem">Skills</a></li>
+        <li role="none"><a href="#projects" class="nav__link" role="menuitem">Projects</a></li>
+        <li role="none"><a href="#achievements" class="nav__link" role="menuitem">Achievements</a></li>
+        <li role="none"><a href="#interests" class="nav__link" role="menuitem">Interests</a></li>
+        <li role="none"><a href="#career" class="nav__link" role="menuitem">Career Goals</a></li>
+        <li role="none"><a href="#contact" class="nav__link" role="menuitem">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <!-- HERO -->
+    <section class="hero section" id="hero" aria-labelledby="hero-heading">
+      <div class="hero__inner">
+        <div class="hero__content">
+          <p class="hero__tag">Available for Opportunities</p>
+          <h1 class="hero__name" id="hero-heading">Yuranga<br><span>Jayawardena</span></h1>
+          <p class="hero__title">Physical Science Student & Aspiring Cybersecurity Engineer</p>
+          <p class="hero__intro">
+            A student at Mahanama College with a strong enthusiasm for ICT and emerging technologies.
+            I'm passionate about Artificial Intelligence, AI workflows, automation systems, and
+            project management — exploring how technology solves real-world problems.
+          </p>
+          <div class="hero__actions">
+            <a href="#contact" class="btn btn--primary">Get in Touch</a>
+            <a href="#projects" class="btn btn--outline">Explore Work</a>
+          </div>
+        </div>
+        <div class="hero__visual" aria-hidden="true">
+          <div class="hero__card">
+            <div class="hero__avatar">YJ</div>
+            <p class="hero__card-label">Aspiring Engineer</p>
+            <p class="hero__card-name">Yuranga Jayawardena</p>
+            <p class="hero__card-role">AI & Cybersecurity</p>
+          </div>
+        </div>
+      </div>
+      <div class="hero__scroll" aria-hidden="true">
+        <span>Scroll</span>
+        <div class="hero__scroll-dot"></div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section" id="about" aria-labelledby="about-heading">
+      <div class="section__inner">
+        <span class="section__eyebrow">About Me</span>
+        <h2 class="section__title" id="about-heading">Driven by curiosity,<br>shaped by discipline</h2>
+        <p class="section__subtitle">
+          A dedicated Physical Science student from Kadawatha, Sri Lanka, combining analytical
+          thinking with a deep passion for technology and innovation.
+        </p>
+        <div class="about__grid reveal">
+          <div class="about__text">
+            <p>
+              I'm currently studying in the <strong>Physical Science Stream at Mahanama College, Colombo</strong>,
+              with Mathematics as a core focus. Beyond the classroom, I'm deeply engaged with ICT —
+              exploring AI workflows, automation systems, and the technologies shaping our future.
+            </p>
+            <p>
+              My approach combines <strong>analytical rigor</strong> from the physical sciences with
+              <strong>creative problem-solving</strong> in technology. I'm committed to continuous
+              learning and actively build both my technical expertise and collaborative skills. After
+              my A/L examinations, I plan to pursue a degree in Cybersecurity at SLIIT University.
+            </p>
+          </div>
+          <div class="about__stats">
+            <div class="about-stat">
+              <div class="about-stat__icon">🎯</div>
+              <h3 class="about-stat__title">Career Focus</h3>
+              <p class="about-stat__desc">AI workflows, automation, cybersecurity, and technology project management.</p>
+            </div>
+            <div class="about-stat">
+              <div class="about-stat__icon">💪</div>
+              <h3 class="about-stat__title">Strengths</h3>
+              <p class="about-stat__desc">Teamwork, communication, leadership, and creative thinking that drives solutions.</p>
+            </div>
+            <div class="about-stat">
+              <div class="about-stat__icon">📍</div>
+              <h3 class="about-stat__title">Location</h3>
+              <p class="about-stat__desc">Kadawatha, Sri Lanka — open to remote and local opportunities.</p>
+            </div>
+            <div class="about-stat">
+              <div class="about-stat__icon">🎓</div>
+              <h3 class="about-stat__title">Goal</h3>
+              <p class="about-stat__desc">Pass G.C.E A/L and pursue a Cybersecurity degree at SLIIT University.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="section" id="education" aria-labelledby="education-heading">
+      <div class="section__inner">
+        <span class="section__eyebrow">Education</span>
+        <h2 class="section__title" id="education-heading">Academic Pathway</h2>
+        <p class="section__subtitle">
+          Laying the groundwork in mathematics and physical sciences at one of Sri Lanka's
+          premier educational institutions, with ambitious plans ahead.
+        </p>
+        <div class="edu__grid reveal">
+          <div class="edu-card">
+            <div class="edu-card__year">Current — Grade 12</div>
+            <h3 class="edu-card__heading">Physical Science Stream</h3>
+            <p class="edu-card__sub">Mahanama College, Colombo</p>
+            <p class="edu-card__detail">
+              Pursuing advanced studies in Mathematics and the Physical Sciences, building
+              a strong analytical foundation for a future in technology and cybersecurity.
+            </p>
+            <div class="edu-card__goal">🎓 Goal: Pass G.C.E A/L Examination</div>
+          </div>
+          <div class="edu-card">
+            <div class="edu-card__year">Future Plan</div>
+            <h3 class="edu-card__heading">BSc in Cybersecurity</h3>
+            <p class="edu-card__sub">SLIIT University</p>
+            <p class="edu-card__detail">
+              Planning to pursue a specialized degree in Cybersecurity at SLIIT University
+              following successful completion of the G.C.E Advanced Level examination.
+            </p>
+            <div class="edu-card__goal">🛡️ Goal: Become a Cybersecurity Engineer</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section" id="skills" aria-labelledby="skills-heading">
+      <div class="section__inner">
+        <span class="section__eyebrow">Skills</span>
+        <h2 class="section__title" id="skills-heading">Technical & Personal<br>Toolkit</h2>
+        <p class="section__subtitle">
+          A blend of emerging technical skills and strong interpersonal abilities, continuously
+          developed through self-directed learning and collaborative experiences.
+        </p>
+        <div class="skills__grid reveal">
+          <div class="skills__category">
+            <p class="skills__category-title">🛠️ Technical Skills</p>
+            <div class="skill-tags">
+              <div class="skill-tag">
+                <span class="skill-tag__name">HTML</span>
+                <span class="skill-tag__level">
+                  <span class="skill-tag__dots">
+                    <span class="skill-tag__dot filled"></span><span class="skill-tag__dot filled"></span><span class="skill-tag__dot filled"></span><span class="skill-tag__dot filled"></span><span class="skill-tag__dot"></span>
+                  </span>
+                  Proficient
+                </span>
+              </div>
+              <div class="skill-tag">
+                <span class="skill-tag__name">Graphics Design</span>
+                <span class="skill-tag__level">
+                  <span class="skill-tag__dots">
+                    <span class="skill-tag__dot filled"></span><span class="skill-tag__dot filled"></span><span class="skill-tag__dot filled"></span><span class="skill-tag__dot filled"></span><span class="skill-tag__dot"></span>
+                  </span>
+                  Proficient
+                </span>
+              </div>
+              <div class="skill-tag">
+                <span class="skill-tag__name">Generative AI</span>
+                <span class="skill-tag__level">
+                  <span class="skill-tag__dots">
+                    <span class="skill-tag__dot filled"></span><span class="skill-tag__dot filled"></span><span class="skill-tag__dot filled"></span><span class="skill-tag__dot"></span><span class="skill-tag__dot"></span>
+                  </span>
+                  Intermediate
+                </span>
+              </div>
+              <div class="skill-tag">
+                <span class="skill-tag__name">Technical Analysis</span>
+                <span class="skill-tag__level">
+                  <span class="skill-tag__dots">
+                    <span class="skill-tag__dot filled"></span><span class="skill-tag__dot filled"></span><span class="skill-tag__dot filled"></span><span class="skill-tag__dot"></span><span class="skill-tag__dot"></span>
+                  </span>
+                  Intermediate
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="skills__category">
+            <p class="skills__category-title">🤝 Soft Skills</p>
+            <div class="skill-tags">
+              <div class="skill-tag">
+                <span class="skill-tag__name">Teamwork</span>
+                <span class="skill-tag__level">
+                  <span class="skill-tag__dots">
+                    <span class="skill-tag__dot filled"></span><span class="skill-tag__dot filled"></span><span class="skill-tag__dot filled"></span><span class="skill-tag__dot filled"></span><span class="skill-tag__dot filled"></span>
+                  </span>
+                  Expert
+                </span>
+              </div>
+              <div class="skill-tag">
+                <span class="skill-tag__name">Communication</span>
+                <span class="skill-tag__level">
+                  <span class="skill-tag__dots">
+                    <span class="skill-tag__dot filled"></span><span class="skill-tag__dot filled"></span><span class="skill-tag__dot filled"></span><span class="skill-tag__dot filled"></span><span class="skill-tag__dot"></span>
+                  </span>
+                  Advanced
+                </span>
+              </div>
+              <div class="skill-tag">
+                <span class="skill-tag__name">Leadership</span>
+                <span class="skill-tag__level">
+                  <span class="skill-tag__dots">
+                    <span class="skill-tag__dot filled"></span><span class="skill-tag__dot filled"></span><span class="skill-tag__dot filled"></span><span class="skill-tag__dot filled"></span><span class="skill-tag__dot"></span>
+                  </span>
+                  Advanced
+                </span>
+              </div>
+              <div class="skill-tag">
+                <span class="skill-tag__name">Creative Thinking</span>
+                <span class="skill-tag__level">
+                  <span class="skill-tag__dots">
+                    <span class="skill-tag__dot filled"></span><span class="skill-tag__dot filled"></span><span class="skill-tag__dot filled"></span><span class="skill-tag__dot filled"></span><span class="skill-tag__dot filled"></span>
+                  </span>
+                  Expert
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section" id="projects" aria-labelledby="projects-heading">
+      <div class="section__inner">
+        <span class="section__eyebrow">Projects</span>
+        <h2 class="section__title" id="projects-heading">Work in Progress</h2>
+        <p class="section__subtitle">
+          Projects are actively being developed — upcoming work will span AI automation,
+          web development, and cybersecurity explorations.
+        </p>
+        <div class="projects__grid reveal">
+          <div class="project-card">
+            <div class="project-card__icon">🤖</div>
+            <h3 class="project-card__title">AI Automation Projects</h3>
+            <p class="project-card__desc">
+              Exploring AI workflows and automation systems using generative AI tools.
+              Building practical solutions that streamline processes and solve real-world problems.
+            </p>
+            <span class="project-card__badge">In Development</span>
+          </div>
+          <div class="project-card">
+            <div class="project-card__icon">🌐</div>
+            <h3 class="project-card__title">Web Development Projects</h3>
+            <p class="project-card__desc">
+              Creating responsive web experiences using HTML and modern design principles.
+              Focused on building clean, accessible, and user-friendly interfaces.
+            </p>
+            <a href="https://first-prototype-web.pages.dev" target="_blank" rel="noopener noreferrer" class="project-card__link">Live Demo — First Prototype</a>
+            <span class="project-card__badge">In Development</span>
+          </div>
+          <div class="project-card">
+            <div class="project-card__icon">🔐</div>
+            <h3 class="project-card__title">Cybersecurity Lab</h3>
+            <p class="project-card__desc">
+              Self-directed learning in cybersecurity fundamentals, networking, and server
+              management — building toward a career as a Cybersecurity Engineer.
+            </p>
+            <span class="project-card__badge">In Development</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACHIEVEMENTS -->
+    <section class="section" id="achievements" aria-labelledby="achievements-heading">
+      <div class="section__inner">
+        <span class="section__eyebrow">Achievements & Certificates</span>
+        <h2 class="section__title" id="achievements-heading">Milestones</h2>
+        <p class="section__subtitle">
+          Key accomplishments and ongoing pursuits that define my academic and professional journey.
+        </p>
+        <div class="achievements__grid reveal">
+          <div class="achievement-card achievement-card--featured">
+            <div class="achievement-card__icon">🏫</div>
+            <h3 class="achievement-card__title">Mahanama College — Physical Science</h3>
+            <p class="achievement-card__desc">
+              Currently enrolled in the Physical Science stream at one of Colombo's most
+              respected schools, building a strong foundation in mathematics and analytical thinking.
+            </p>
+          </div>
+          <div class="achievement-card achievement-card--featured">
+            <div class="achievement-card__icon">🎓</div>
+            <h3 class="achievement-card__title">G.C.E A/L — Upcoming</h3>
+            <p class="achievement-card__desc">
+              Preparing for the G.C.E Advanced Level examination with a focus on achieving
+              results that open doors to top-tier university programs in technology.
+            </p>
+          </div>
+          <div class="achievement-card">
+            <div class="achievement-card__icon">🤖</div>
+            <h3 class="achievement-card__title">AI & Automation Explorer</h3>
+            <p class="achievement-card__desc">
+              Self-directed learning in generative AI, automation workflows, and emerging
+              technologies — experimenting with tools that shape the future of work.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERESTS & HOBBIES -->
+    <section class="section" id="interests" aria-labelledby="interests-heading">
+      <div class="section__inner">
+        <span class="section__eyebrow">Interests & Hobbies</span>
+        <h2 class="section__title" id="interests-heading">Beyond the<br>Classroom</h2>
+        <p class="section__subtitle">
+          What fuels my curiosity and how I spend my time outside of academics.
+        </p>
+        <div class="interests__section reveal">
+          <p class="interests__section-title">💡 Professional Interests</p>
+          <div class="chip-grid">
+            <span class="chip"><span class="chip__emoji">🌐</span> Web Development</span>
+            <span class="chip"><span class="chip__emoji">🤖</span> AI</span>
+            <span class="chip"><span class="chip__emoji">🔐</span> Cybersecurity</span>
+            <span class="chip"><span class="chip__emoji">🖧</span> Server Management</span>
+          </div>
+        </div>
+        <div class="interests__section reveal">
+          <p class="interests__section-title">🎯 Hobbies & Pastimes</p>
+          <div class="chip-grid">
+            <span class="chip"><span class="chip__emoji">🎮</span> Gaming</span>
+            <span class="chip"><span class="chip__emoji">🎨</span> Graphics Designing</span>
+            <span class="chip"><span class="chip__emoji">🎵</span> Listening to Music</span>
+            <span class="chip"><span class="chip__emoji">👥</span> Hanging Out with Friends</span>
+            <span class="chip"><span class="chip__emoji">🔐</span> Learning Cybersecurity</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CAREER GOALS -->
+    <section class="section" id="career" aria-labelledby="career-heading">
+      <div class="section__inner">
+        <span class="section__eyebrow">Career Goals</span>
+        <h2 class="section__title" id="career-heading">The Road Ahead</h2>
+        <div class="career__wrap reveal">
+          <div class="career__icon">🛡️</div>
+          <p class="career__quote">
+            "After completing my degree, I aspire to work as a <em>Cybersecurity Engineer</em> —
+            protecting digital systems and solving critical security challenges."
+          </p>
+          <p class="career__detail">
+            My path is clear: excel in the G.C.E A/L examination, pursue a degree in Cybersecurity
+            at SLIIT University, and build a career at the forefront of digital security. I'm
+            committed to mastering AI-driven automation, network security, and developing the
+            expertise needed to protect tomorrow's digital infrastructure.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact" aria-labelledby="contact-heading">
+      <div class="section__inner">
+        <span class="section__eyebrow">Contact</span>
+        <h2 class="section__title" id="contact-heading">Let's Connect</h2>
+        <p class="section__subtitle">
+          I'm always open to new opportunities, collaborations, and conversations.
+          Reach out through any of the channels below.
+        </p>
+        <div class="contact__grid reveal">
+          <a href="/cdn-cgi/l/email-protection#83faf6f1e2ede4e2f6c3e4eee2eaefade0ecee" class="contact-card" aria-label="Email Yuranga Jayawardena">
+            <div class="contact-card__icon">✉️</div>
+            <div class="contact-card__info">
+              <div class="contact-card__label">Email</div>
+              <div class="contact-card__value" id="email-display"><span class="__cf_email__" data-cfemail="89f0fcfbe8e7eee8fcc9eee4e8e0e5a7eae6e4">[email&#160;protected]</span></div>
+            </div>
+          </a>
+          <a href="https://github.com/RichThunder" target="_blank" rel="noopener noreferrer" class="contact-card" aria-label="Visit GitHub profile">
+            <div class="contact-card__icon">🐙</div>
+            <div class="contact-card__info">
+              <div class="contact-card__label">GitHub</div>
+              <div class="contact-card__value">RichThunder</div>
+            </div>
+          </a>
+          <a href="https://www.linkedin.com/in/yuranga-jayawardena-b31624416/" target="_blank" rel="noopener noreferrer" class="contact-card" aria-label="Visit LinkedIn profile">
+            <div class="contact-card__icon">💼</div>
+            <div class="contact-card__info">
+              <div class="contact-card__label">LinkedIn</div>
+              <div class="contact-card__value">Yuranga Jayawardena</div>
+            </div>
+          </a>
+          <div class="contact-card" aria-label="Phone number">
+            <div class="contact-card__icon">📱</div>
+            <div class="contact-card__info">
+              <div class="contact-card__label">Phone</div>
+              <div class="contact-card__value">+94 72 248 2036</div>
+            </div>
+          </div>
+          <div class="contact-card" aria-label="WhatsApp number">
+            <div class="contact-card__icon">💬</div>
+            <div class="contact-card__info">
+              <div class="contact-card__label">WhatsApp</div>
+              <div class="contact-card__value">+94 76 836 8320</div>
+            </div>
+          </div>
+          <div class="contact-card" aria-label="Location">
+            <div class="contact-card__icon">📍</div>
+            <div class="contact-card__info">
+              <div class="contact-card__label">Location</div>
+              <div class="contact-card__value">Kadawatha, Sri Lanka</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <p class="footer__text">&copy; 2026 <b>Yuranga Jayawardena</b> — Built with ambition &amp; purpose.</p>
+  </footer>
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    (function () {
+      'use strict';
+      var navbar = document.getElementById('navbar');
+      var navToggle = document.getElementById('navToggle');
+      var navLinks = document.getElementById('navLinks');
+      var allNavLinks = document.querySelectorAll('.nav__link');
+      var revealEls = document.querySelectorAll('.reveal');
+
+      function onScroll() {
+        var scrollY = window.scrollY;
+        if (navbar) navbar.classList.toggle('scrolled', scrollY > 40);
+        var sections = document.querySelectorAll('section[id]');
+        var current = '';
+        sections.forEach(function (s) { if (scrollY >= (s.offsetTop - 120)) current = s.getAttribute('id'); });
+        allNavLinks.forEach(function (l) {
+          l.classList.remove('nav__link--active');
+          if (l.getAttribute('href') === '#' + current) l.classList.add('nav__link--active');
+        });
+      }
+
+      function toggleNav() {
+        var isOpen = navLinks.classList.toggle('open');
+        navToggle.classList.toggle('open');
+        navToggle.setAttribute('aria-expanded', isOpen);
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+      }
+      function closeNav() {
+        navLinks.classList.remove('open');
+        navToggle.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      }
+
+      if (navToggle) navToggle.addEventListener('click', toggleNav);
+      allNavLinks.forEach(function (l) { l.addEventListener('click', closeNav); });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && navLinks.classList.contains('open')) { closeNav(); navToggle.focus(); }
+      });
+
+      if ('IntersectionObserver' in window) {
+        var obs = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) { entry.target.classList.add('visible'); obs.unobserve(entry.target); }
+          });
+        }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
+        revealEls.forEach(function (el) { obs.observe(el); });
+      } else {
+        revealEls.forEach(function (el) { el.classList.add('visible'); });
+      }
+
+      window.addEventListener("scroll", onScroll, { passive: true });
+
+      // Bypass email obfuscation
+      var emEl = document.getElementById("email-display");
+      if (emEl) { emEl.textContent = "yurangau" + "@" + "gmail.com"; }
+      onScroll();
+
+      document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+        a.addEventListener('click', function (e) {
+          var id = this.getAttribute('href');
+          if (id === '#') return;
+          var t = document.querySelector(id);
+          if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
